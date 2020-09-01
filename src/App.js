@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import List from "./components/List";
+import Search from "./components/Search";
 
 function App() {
   const stories = [
@@ -21,21 +22,14 @@ function App() {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleChange = (e) => {
-    setSearchTerm(e.target.value);
+  const handleSearch = (e) => {
+    console.log(e.target.value);
   };
 
   return (
     <div className="App">
       <h1>My Hacker Stories</h1>
-
-      <label htmlFor="search">Search:</label>
-      <input id="search" type="text" onChange={handleChange} />
-      <p>
-        Search for <strong>{searchTerm}</strong>
-      </p>
+      <Search onSearch={handleSearch} />
       <hr />
       <List list={stories} />
     </div>
