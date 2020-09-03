@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import List from "./components/List";
 import Search from "./components/Search";
+import useSemiPersistantState from "./components/customhooks/useSemiPersistentState";
 
 function App() {
   const stories = [
@@ -22,13 +23,7 @@ function App() {
     },
   ];
 
-  const [searchTerm, setSearchTerm] = useState(
-    localStorage.getItem("search" || "React")
-  );
-
-  useEffect(() => {
-    localStorage.setItem("search", searchTerm);
-  }, [searchTerm]);
+  const [searchTerm, setSearchTerm] = useSemiPersistantState("search", "React");
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
