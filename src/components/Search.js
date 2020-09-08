@@ -1,12 +1,9 @@
 import React from "react";
 
-const Search = ({ onSearch, searchTerm }) => {
-  return (
-    <>
-      <label htmlFor="search">Search:</label>
-      <input id="search" type="text" onChange={onSearch} value={searchTerm} />
-    </>
-  );
-};
-
-export default Search;
+const InputWithLabel = ({ id, label, value, type = "text", onInputChange }) => (
+  <>
+    <label htmlFor={id}>{label}</label>
+    &nbsp;
+    <input id={id} type={type} value={value} onChange={onInputChange} />
+  </>
+);

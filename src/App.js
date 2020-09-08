@@ -1,6 +1,6 @@
 import React from "react";
 import List from "./components/List";
-import Search from "./components/Search";
+import InputWithLabel from "./components/Search";
 import useSemiPersistantState from "./components/customhooks/useSemiPersistentState";
 
 function App() {
@@ -37,7 +37,12 @@ function App() {
   return (
     <div className="App">
       <h1>My Hacker Stories</h1>
-      <Search search={searchTerm} onSearch={handleSearch} />
+      <InputWithLabel
+        id="search"
+        label="Search"
+        value={searchTerm}
+        onInputChange={handleSearch}
+      />
       <hr />
       <List list={searchedStories} />
     </div>
